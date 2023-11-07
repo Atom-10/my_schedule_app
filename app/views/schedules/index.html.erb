@@ -1,0 +1,29 @@
+<h1>スケジュール一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>タイトル</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>終日</th>
+      <th>更新日</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.id %></td>
+        <td><%= schedule.title %></td>
+        <td><%= schedule.start %></td>
+        <td><%= schedule.end %></td>
+        <td><%= schedule.allday %></td>
+        <td><%= schedule.updated %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<p><%= link_to "スケジュール新規登録"%></p>
