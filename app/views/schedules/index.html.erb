@@ -1,4 +1,9 @@
 <h1>スケジュール一覧</h1>
+
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -8,6 +13,7 @@
       <th>終了日</th>
       <th>終日</th>
       <th>更新日</th>
+      <th>詳細</th>
     </tr>
   </thead>
 
@@ -19,11 +25,13 @@
         <td><%= schedule.start %></td>
         <td><%= schedule.end %></td>
         <td><%= schedule.allday %></td>
-        <td><%= schedule.updated %></td>
-      </tr>
+        <td><%= schedule.updated_at.to_s(:datetime_jp) %></td>
+        <td><%= link_to "詳細", schedule %></td>
+        </tr>
+
     <% end %>
   </tbody>
 </table>
 
 
-<p><%= link_to "スケジュール新規登録"%></p>
+<p><%= link_to "スケジュール新規登録", :new_schedule %></p>
