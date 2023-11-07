@@ -22,9 +22,17 @@ class SchedulesController < ApplicationController
   end
 
   def edit
+    @schedule = Schedule.find(params[:id])
   end
 
   def update
+    @schedule = Schedule.find(params[:id])
+    if @schedule.update(params.require(:schedule).permit(:title, :start, :end, :allday, :details))
+      flash[:notice] = "スケジュールが変更されました"
+      redirect_to :schedules
+    else
+      render "edit"
+    end
   end
 
   def destroy
