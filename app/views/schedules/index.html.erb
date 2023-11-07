@@ -15,6 +15,7 @@
       <th>更新日</th>
       <th>詳細</th>
       <th>編集</th>
+      <th>削除</th>
     </tr>
   </thead>
 
@@ -29,10 +30,11 @@
         <td><%= schedule.updated_at.to_s(:datetime_jp) %></td>
         <td><%= link_to "詳細", schedule %></td>
         <td><%= link_to "編集", [:edit, schedule] %></td>
+        <td><%= link_to "削除", schedule, method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
         </tr>
     <% end %>
   </tbody>
 </table>
 
 
-<p><%= link_to "スケジュール新規登録", :new_schedule %></p>
+<p><%= link_to "スケジュールを新規登録する", :new_schedule %></p>
