@@ -6,7 +6,7 @@ class Schedule < ApplicationRecord
   validates :details, length: {maximum: 500}
 
   def start_end_check
-      errors.add(:end, "は開始日より後の日付を選択してください") unless
+      errors.add(:end, "は開始日以降の日付を選択してください") unless
       self.start <= self.end
   end
 end
