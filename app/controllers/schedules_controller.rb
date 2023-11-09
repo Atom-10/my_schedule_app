@@ -28,7 +28,7 @@ class SchedulesController < ApplicationController
   def update
     @schedule = Schedule.find(params[:id])
     if @schedule.update(params.require(:schedule).permit(:title, :start, :end, :allday, :details))
-      flash[:notice] = "スケジュールが変更されました"
+      flash[:notice] = "スケジュールが更新されました"
       redirect_to :schedules
     else
       render "edit"
@@ -38,7 +38,7 @@ class SchedulesController < ApplicationController
   def destroy
     @schedule = Schedule.find(params[:id])
     @schedule.destroy
-    flash[:notice] = "スケジュールを削除しました"
+    flash[:notice] = "ID #{@schedule.id} のスケジュールを削除しました"
     redirect_to :schedules
   end
 end
