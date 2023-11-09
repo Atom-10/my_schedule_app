@@ -13,6 +13,7 @@ class SchedulesController < ApplicationController
       flash[:notice] = "スケジュールを新規登録しました"
       redirect_to :schedules
     else
+      flash[:notice] = "スケジュール登録できませんでした"
       render "new"
     end
   end
@@ -22,7 +23,13 @@ class SchedulesController < ApplicationController
   end
 
   def edit
-    @schedule = Schedule.find(params[:id])
+    if @schedule = Schedule.find(params[:id])
+      flash[:notice] = "スケジュールを更新しませんでした"
+      render "edit"
+    else
+      @schedule.save
+      flash[:notice] = "ID #{@schedule.id} のスケジュールが更新されました"
+    end
   end
 
   def update

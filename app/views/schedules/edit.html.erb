@@ -1,5 +1,7 @@
 <h2>スケジュール編集</h2>
 
+<%= render "shared/error", obj: @schedule %>
+
 <%= form_with model: @schedule do |f| %>
   <table>
     <tr>
@@ -23,7 +25,7 @@
     </tr>
 
     <tr>
-      <th><%= f.label :details, "詳細" %></th>
+      <th><%= f.label :details, "スケジュールメモ" %></th>
       <td><%= f.text_area :details %></td>
     </tr>
   </table>
