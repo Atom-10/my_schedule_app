@@ -28,7 +28,7 @@ class SchedulesController < ApplicationController
   def update
     @schedule = Schedule.find(params[:id])
     if @schedule.update(params.require(:schedule).permit(:title, :start, :end, :allday, :details))
-      flash[:notice] = "スケジュールが更新されました"
+      flash[:notice] = "ID #{@schedule.id} のスケジュールが更新されました"
       redirect_to :schedules
     else
       render "edit"
