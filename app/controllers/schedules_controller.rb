@@ -24,7 +24,7 @@ class SchedulesController < ApplicationController
 
   def edit
     if @schedule = Schedule.find(params[:id])
-      flash[:notice] = "スケジュールを更新できませんでした"
+      flash[:notice] = "スケジュールを更新に失敗しました"
       render "edit"
     else
       @schedule.save
