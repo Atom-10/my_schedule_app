@@ -7,11 +7,15 @@
 <table>
   <thead>
     <tr>
-      <th><%= link_to "スケジュールを新規登録する", :new_schedule %></th>
       <th>今日の日付は <%= Date.current.strftime("%Y/%m/%d") %> です</th>
       <th>予定の合計数 <%= Schedule.count %></th>
     </tr>
   </thead>
+  <tbody>
+    <tr>
+      <td colspan="2"><%= link_to "スケジュールを新規登録する", :new_schedule %></td>
+    </tr>
+  </tbody>
 </table>
   
 <table>
