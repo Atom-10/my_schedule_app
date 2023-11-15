@@ -1,9 +1,5 @@
 <h1>スケジュール一覧</h1>
 
-<ul>
-  <li><%= link_to "スケジュールを新規登録する", :new_schedule %></li>
-</ul>
-
 <% if flash[:notice] %>
   <p class="notice"><%= flash[:notice] %></p>
 <% end %>
@@ -11,6 +7,7 @@
 <table>
   <thead>
     <tr>
+      <th><%= link_to "スケジュールを新規登録する", :new_schedule %></th>
       <th>今日の日付は <%= Date.current.strftime("%Y/%m/%d") %> です</th>
       <th>予定の合計数 <%= Schedule.count %></th>
     </tr>
